@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <HerrenKatalog msg="Willkommen in unserem Männerkatalog!"/>
     <h1> Warum auch immer will hier darüber nicht das msg auftauchen</h1>
+    <h2> (UPDATE: Jetzt taucht es auf in dünner Schrift!) </h2>
   </div>
 </template>
 
