@@ -1,17 +1,17 @@
 <template>
   <div class="damen">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <FrauenKatalog msg="Willkommen auf der Frauen Seite des Shops"/>
   </div>
 </template>
 
 <script>
 
-import HelloWorld from '@/components/HelloWorld.vue'
+import FrauenKatalog from '@/components/FrauenKatalog.vue'
 export default {
   name: 'DamenView',
   components: {
-    HelloWorld
+    FrauenKatalog
   }
 }
 </script>

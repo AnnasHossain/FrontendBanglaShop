@@ -2,7 +2,7 @@
   <div class="mensworld">
     <h1>{{ msg }}</h1>
     <p>
-      Hier kommen die ganzen Herrenprodukte rein
+      Hier kommen die ganzen Herrenprodukte rein (also Herren Produktpallette)
     </p>
   </div>
 </template>
