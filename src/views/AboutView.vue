@@ -20,7 +20,7 @@ export default {
   data () {
     return {
       todoList: [
-        { text: '1. Navigations Bar', completed: false },
+        { text: '1. Navigations Bar', completed: true },
         { text: '2. Dropdown Menü', completed: false },
         { text: '3. keine Ahnung mehr, Fashhion Seiten kopieren', completed: false }
       ]
@@ -38,4 +38,10 @@ export default {
 button {
   margin-left: 10px;
 }
+/* Entfernt die Aufzählungspunkte */
+ul {
+  list-style-type: none;
+  padding-left: 0; /* optional: Entfernt den linken Einzug der Liste */
+}
+
 </style>
