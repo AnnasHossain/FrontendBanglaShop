@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DamenView from '../views/DamenView.vue'
 import HerrenView from '../views/HerrenView.vue'
+import LikeView from '@/views/LikeView.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/kontakt',
     name: 'kontakt',
     component: () => import('../views/KontaktView.vue')
+  },
+  {
+    path: '/likes',
+    name: 'likes',
+    component: LikeView
   }
 ]
 

@@ -2,6 +2,17 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
+      <router-link to="/damen">
+        <button>Click here to go to women fashion</button>
+      </router-link>
+      <router-link to="/herren">
+        <button>Click here to go to men fashion</button>
+      </router-link>
+      <router-link to="/kontakt">
+        <button>Click here to get to know more about us</button>
+      </router-link>
+    </p>
+    <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
@@ -46,6 +57,9 @@ export default {
 <style scoped>
 h3 {
   margin: 40px 0 0;
+}
+button {
+  margin-left: 10px;
 }
 ul {
   list-style-type: none;

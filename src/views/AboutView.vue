@@ -38,7 +38,6 @@ export default {
 button {
   margin-left: 10px;
 }
-/* Entfernt die Aufzählungspunkte */
 ul {
   list-style-type: none;
   padding-left: 0; /* optional: Entfernt den linken Einzug der Liste */

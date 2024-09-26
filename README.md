@@ -24,6 +24,12 @@ npm run test:unit
 ```
 npm run lint
 ```
+### fixes peer-deps issues
+```
+npm install --legacy-peer-deps
+```
+
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
