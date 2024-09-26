@@ -7,7 +7,7 @@
       </section>
 
       <section class="featured-products">
-        <h2>Ausgewählte Produkte</h2>
+        <h2>Ausgewählte Produkte</h2> <!--hier könnte ich mit msg entsprechende vue komponente -->
         <div class="product-grid">
           <div class="product-card" v-for="product in featuredProducts" :key="product.id">
             <img :src="product.image" :alt="product.name" class="product-image">
@@ -19,7 +19,7 @@
       </section>
 
       <section class="categories">
-        <h2>Kategorien</h2>
+        <h2>Kategorien</h2> <!-- hier was anderes und gleiches prinzip wie darüber-->
         <div class="category-grid">
           <div class="category-card" v-for="category in categories" :key="category.id">
             <img :src="category.image" :alt="category.name" class="category-image">
@@ -73,55 +73,6 @@ body {
   color: #333;
 }
 
-.modern-nav {
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 5%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.nav-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-item {
-  color: #333;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 5px 10px;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.nav-item:hover {
-  background-color: #f0f0f0;
-}
-
-.nav-item.router-link-exact-active {
-  color: #ffffff;
-  background-color: #42b983;
-}
-
 .main-content {
   padding-top: 80px;
   max-width: 1200px;
@@ -132,8 +83,10 @@ body {
 .hero {
   text-align: center;
   padding: 50px 0;
-  background-color: #f8f8f8;
-  margin-bottom: 40px;
+  background-color: #f8f8f8; /* Ändern Sie dies in die gewünschte Farbe */
+  background-image: url('@/assets/banglalogo.jpeg'); /* Optional: Fügen Sie hier ein Bild hinzu */
+  background-size: 1220px auto; /* Bildgröße anpassen */
+  background-position: center; /* Bild zentrieren */
 }
 
 .hero h1 {

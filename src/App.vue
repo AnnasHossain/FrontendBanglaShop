@@ -60,7 +60,7 @@ html, body {
 .nav-logo {
   font-size: 1.8rem; /* Größere Schrift für das Logo */
   font-weight: bold;
-  color: #42b983; /* Verwenden Sie die Hauptfarbe für das Logo */
+  color: #137703; /* Verwenden Sie die Hauptfarbe für das Logo */
 }
 
 .nav-links {
