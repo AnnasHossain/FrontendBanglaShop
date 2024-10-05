@@ -23,14 +23,15 @@ export default {
         { text: '1. Navigations Bar', completed: true },
         { text: '2. Dropdown Menü', completed: true },
         { text: '3. Menü inhalt korrigieren', completed: true },
-        { text: '4. Icon hinzufügen für Menü', completed: false },
+        { text: '4. Icon hinzufügen für Menü', completed: true },
         { text: '5. Menü Button funktion, sodass wenn ich auf eins der Kategorien draufklicke, menü autom sich wieder schließt', completed: false },
         { text: '6. Dropdown unterkategorien im Menu', completed: false },
         { text: '7. Warenkorb erstellen', completed: false },
         { text: '8. Warenkorb Icon erstellen', completed: false },
         { text: '9. Warenkorb Funktionalität', completed: false },
         { text: '10. noch mehr Fashhion Seiten desgins und funktionen kopieren', completed: false },
-        { text: '11. alten Code kopieren um mit Datensätze Kacheln (Produkte) erstellen', completed: false }
+        { text: '11. alten Code kopieren um mit Datensätze Kacheln (Produkte) erstellen', completed: false },
+        { text: '12. Code of Conduct (verhaltensregeln, AGBs, LVHM Style kopieren)', completed: false }
       ]
     }
   },

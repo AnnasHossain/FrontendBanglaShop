@@ -10,9 +10,9 @@
           <router-link to="/herren" class="nav-item">Herren</router-link>
           <router-link to="/kontakt" class="nav-item">Kontakt</router-link>
 
-          <!-- Menü Button -->
-          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" @click="isMenuOpen = true">
-            Menü
+          <!-- Menü Button mit Icon -->
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" @click="toggleMenu">
+            <i :class="['fas', isMenuOpen ? 'fa-times' : 'fa-bars', { rotate: isMenuOpen }]"></i>
           </button>
 
           <!-- Offcanvas Menü -->
@@ -33,6 +33,7 @@
         </div>
       </div>
     </nav>
+
     <main class="main-content">
       <router-view/>
     </main>
@@ -44,31 +45,60 @@
 </template>
 
 <script setup>
-
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const isMenuOpen = ref(false)
+
+function toggleMenu () {
+  isMenuOpen.value = !isMenuOpen.value
+}
 
 function closeMenu () {
   isMenuOpen.value = false
 }
-/* import MenuButton from '@/components/MenuButton.vue'
 
-export default {
-  name: 'App',
-  components: {
-    MenuButton
-  },
-  data () {
-    return {
-    }
-  },
-  mounted () {
-  }
-} */
+// Event-Handler für das Öffnen und Schließen des Menüs
+function onMenuOpen () {
+  isMenuOpen.value = true
+}
+
+function onMenuClose () {
+  isMenuOpen.value = false
+}
+
+// Registriere die Bootstrap-Events
+onMounted(() => {
+  const offcanvasElement = document.getElementById('offcanvasMenu')
+  offcanvasElement.addEventListener('shown.bs.offcanvas', onMenuOpen)
+  offcanvasElement.addEventListener('hidden.bs.offcanvas', onMenuClose)
+})
+
+// Entferne die Event-Listener beim Unmount
+onBeforeUnmount(() => {
+  const offcanvasElement = document.getElementById('offcanvasMenu')
+  offcanvasElement.removeEventListener('shown.bs.offcanvas', onMenuOpen)
+  offcanvasElement.removeEventListener('hidden.bs.offcanvas', onMenuClose)
+})
 </script>
 
-<style>
+<style scoped>
+.offcanvas {
+  width: 250px; /* Breite des Offcanvas-Menüs */
+}
+
+.rotate {
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.offcanvas {
+  width: 250px; /* Breite des Offcanvas-Menüs */
+}
+
+.rotate {
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
 
 .offcanvas {
   width: 250px; /* Breite des Offcanvas-Menüs */
