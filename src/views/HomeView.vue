@@ -81,6 +81,7 @@ body {
 }
 
 .hero {
+  color: #dddddd;
   text-align: center;
   padding: 50px 0;
   background-color: #f8f8f8; /* Ändern Sie dies in die gewünschte Farbe */

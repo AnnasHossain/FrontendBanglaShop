@@ -9,13 +9,32 @@
           <router-link to="/damen" class="nav-item">Damen</router-link>
           <router-link to="/herren" class="nav-item">Herren</router-link>
           <router-link to="/kontakt" class="nav-item">Kontakt</router-link>
+
+          <!-- Menü Button -->
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" @click="isMenuOpen = true">
+            Menü
+          </button>
+
+          <!-- Offcanvas Menü -->
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasMenuLabel">Menü</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul>
+                <li><router-link to="/damen" @click="closeMenu">Damenmode</router-link></li>
+                <li><router-link to="/herren" @click="closeMenu">Herrenmode</router-link></li>
+                <li><router-link to="/about" @click="closeMenu">Accessoires (About)</router-link></li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </nav>
-
     <main class="main-content">
       <router-view/>
-      <!-- Hier können Sie weiteren Inhalt hinzufügen -->
     </main>
 
     <footer class="footer">
@@ -24,7 +43,37 @@
   </div>
 </template>
 
+<script setup>
+
+import { ref } from 'vue'
+
+const isMenuOpen = ref(false)
+
+function closeMenu () {
+  isMenuOpen.value = false
+}
+/* import MenuButton from '@/components/MenuButton.vue'
+
+export default {
+  name: 'App',
+  components: {
+    MenuButton
+  },
+  data () {
+    return {
+    }
+  },
+  mounted () {
+  }
+} */
+</script>
+
 <style>
+
+.offcanvas {
+  width: 250px; /* Breite des Offcanvas-Menüs */
+}
+
 /* Allgemeine Schriftarten und Farben */
 html, body {
   height: 100%; /* Stellen Sie sicher, dass html und body die volle Höhe des Viewports einnehmen */
@@ -117,7 +166,3 @@ html, body {
   }
 }
 </style>
-
-<script setup>
-// Hier können Sie weitere Logik hinzufügen
-</script>
