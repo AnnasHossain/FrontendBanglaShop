@@ -8,6 +8,8 @@
           <router-link to="/about" class="nav-item">About</router-link>
           <router-link to="/damen" class="nav-item">Damen</router-link>
           <router-link to="/herren" class="nav-item">Herren</router-link>
+          <router-link to="/likes" class="nav-item" >Likes</router-link>
+          <router-link to="/warenkorb" class="nav-item" >Warenkorb</router-link>
           <router-link to="/kontakt" class="nav-item">Kontakt</router-link>
 
           <!-- Menü Button mit Icon -->

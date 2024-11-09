@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import DamenView from '../views/DamenView.vue'
 import HerrenView from '../views/HerrenView.vue'
 import LikeView from '@/views/LikeView.vue'
+import WarenkorbView from '@/views/WarenkorbView.vue'
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path: '/likes',
     name: 'likes',
     component: LikeView
+  },
+  {
+    path: '/warenkorb',
+    name: 'warenkorb',
+    component: WarenkorbView
   }
 ]
 
