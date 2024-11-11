@@ -7,7 +7,8 @@
       </section>
 
       <section class="featured-products">
-        <h2>Ausgewählte Produkte</h2> <!--hier könnte ich mit msg entsprechende vue komponente -->
+        <h2> hier könnte ich mit msg entsprechende vue componente noch weitere Sachen wie Empfohlene Produkte etc. strukturieren, vll auch direkt die ausgewählten Produkte und alles weitere strukturieren ?</h2>
+        <h2>Ausgewählte Produkte</h2>
         <div class="product-grid">
           <div class="product-card" v-for="product in featuredProducts" :key="product.id">
             <img :src="product.image" :alt="product.name" class="product-image">
