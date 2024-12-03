@@ -5,12 +5,28 @@
         <router-link to="/" class="nav-logo">Dein Bangla Shop</router-link>
         <div class="nav-links">
           <router-link to="/" class="nav-item">Home</router-link>
-          <router-link to="/about" class="nav-item">About</router-link>
           <router-link to="/damen" class="nav-item">Damen</router-link>
           <router-link to="/herren" class="nav-item">Herren</router-link>
-          <router-link to="/likes" class="nav-item" >Likes</router-link>
-          <router-link to="/warenkorb" class="nav-item" >Warenkorb</router-link>
-          <router-link to="/kontakt" class="nav-item">Kontakt</router-link>
+          <router-link to="/about" class="nav-item">Accessoires</router-link>
+        </div>
+        <div class="nav-rechts">
+          <router-link to="/likes" class="nav-item" style="position: relative;">
+            <i class="bi bi-heart" style="font-size: 1.5rem; color: red;"></i>
+            <span
+              v-if="favoritesCount > 0"
+              style="position: absolute; top: -5px; right: -10px; background: red; color: white; font-size: 0.8rem; padding: 2px 5px; border-radius: 50%;"> {{ favoritesCount }}
+            </span>
+          </router-link>
+          <!-- Einkaufstaschen-Icon (Warenkorb) -->
+          <router-link to="/warenkorb" class="nav-item" style="position: relative;">
+            <i class="bi bi-bag" style="font-size: 1.5rem; color: black;"></i>
+            <!-- Warenkorb-Zähler -->
+            <span
+              v-if="cartCount > 0"
+              style="position: absolute; top: -5px; right: -10px; background: red; color: white; font-size: 0.8rem; padding: 2px 5px; border-radius: 50%;">
+              {{ cartCount }}
+            </span>
+          </router-link>
 
           <!-- Menü Button mit Icon -->
           <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" @click="toggleMenu">
@@ -41,15 +57,57 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; 2024 Dein Bangla Shop. Alle Rechte vorbehalten.</p>
-    </footer>
+        <div class="footer-container">
+          <!-- Unser Unternehmen -->
+          <div class="footer-column">
+            <h5>Unser Unternehmen</h5>
+            <ul>
+              <li><a href="/kontakt">Über uns</a></li>
+              <li><a href="/nachhaltigkeit">Nachhaltigkeit</a></li>
+              <li><a href="/Lieferantenversprechen">Lieferantenversprechen</a></li>
+              <li><a href="/blog">Blog</a></li>
+            </ul>
+          </div>
+
+          <!-- Hilfe -->
+          <div class="footer-column">
+            <h5>Hilfe</h5>
+            <ul>
+              <li><a href="/kundenservice">Kundenservice & Support</a></li>
+              <li><a href="/versand">Versandinformationen</a></li>
+              <li><a href="/retouren">Retouren</a></li>
+              <li><a href="/kontakt">Kontakt</a></li>
+            </ul>
+          </div>
+
+          <!-- Rechtliches -->
+          <div class="footer-column">
+            <h5>Rechtliches</h5>
+            <ul>
+              <li><a href="/agb">AGB</a></li>
+              <li><a href="/datenschutz">Datenschutz</a></li>
+              <li><a href="/impressum">Impressum</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2024 Dein Bangla Shop. Alle Rechte vorbehalten.</p>
+        </div>
+      </footer>
   </div>
 </template>
 
 <script setup>
+// eslint-disable-next-line no-unused-vars
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const isMenuOpen = ref(false)
+
+const favoritesCount = ref(3) // Bsp.anzahl gesetzt
+
+const cartCount = ref(5) // Beispiel: Anzahl der Artikel im Warenkorb
 
 function toggleMenu () {
   isMenuOpen.value = !isMenuOpen.value
@@ -117,6 +175,37 @@ html, body {
   flex-direction: column;
   min-height: 100vh; /* Stellen Sie sicher, dass die App mindestens die Höhe des Viewports hat */
 }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-rechts {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Abstand zwischen den Icons */
+}
+
+.nav-item i {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover i {
+  transform: scale(1.1);
+  color: darkred;
+}
+
+.nav-item span {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 0.8rem;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-weight: bold;
+}
 
 /* Navigation */
 .modern-nav {
@@ -131,39 +220,41 @@ html, body {
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start; /* Elemente nach links ausrichten */
+  align-items: center; /* Vertikal ausrichten */
   padding: 15px 5%;
   max-width: 1200px;
-  margin: auto; /* Verwenden Sie auto für zentrierten Abstand */
+  margin: auto; /* Zentriert die gesamte Navigation */
 }
 
 .nav-logo {
   font-size: 1.8rem; /* Größere Schrift für das Logo */
   font-weight: bold;
-  color: #137703; /* Verwenden Sie die Hauptfarbe für das Logo */
+  color: #137703; /* Hauptfarbe des Logos */
+  margin-right: 20px; /* Abstand zwischen Logo und den Kategorien */
 }
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 20px; /* Abstand zwischen den Links */
+  margin-left: 0; /* Entferne Standardabstände */
 }
 
 .nav-item {
   color: #333;
   text-decoration: none;
-  font-weight: bold; /* Fettgedruckt für bessere Lesbarkeit */
-  padding: 10px; /* Größeres Padding für mehr Klickfläche */
+  font-weight: bold;
+  padding: 10px;
 }
 
 .nav-item:hover {
-  background-color: #f0f0f0; /* Leichter Hover-Effekt */
+  background-color: #f0f0f0;
 }
 
-.nav-item.router-link-exact-active {
+/*.nav-item.router-link-exact-active {
   color: #ffffff;
-  background-color: #42b983; /* Hauptfarbe für aktiven Link */
-}
+  background-color: #42b983; !* Hauptfarbe für aktiven Link *!
+}*/
 
 /* Hauptinhalt */
 .main-content {
@@ -173,10 +264,58 @@ html, body {
 
 /* Footer */
 .footer {
-  text-align: center;
+  background-color: #f8f9fa; /* Heller Hintergrund */
+  color: #212529; /* Dunkle Schriftfarbe */
+  padding: 40px 20px; /* Innenabstand */
+  border-top: 1px solid #dee2e6; /* Dezente Trennlinie */
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-column h5 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+.footer-column ul {
+  list-style: none;
   padding: 0;
-  background-color: #565050; /* Dunkler Hintergrund für den Footer */
-  color: white; /* Weiße Schrift im Footer */
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-column ul li a:hover {
+  color: #42b983; /* Hauptfarbe beim Hover */
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #6c757d;
 }
 
 /* Responsive Design */

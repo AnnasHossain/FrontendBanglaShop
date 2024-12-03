@@ -1,15 +1,16 @@
 <template>
-  <div class="likepage">
+  <div class="recommends">
     <h1>{{ msg }}</h1>
     <p>
-      Hier kommen die geliketen Sachen rein
+      Ausgewählte Produkte
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'LikePage',
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'Reecommends',
   props: {
     msg: String
   }
