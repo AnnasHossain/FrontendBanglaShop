@@ -2,25 +2,29 @@
   <div class="app">
     <nav class="modern-nav">
       <div class="nav-container">
+        <!-- Logo -->
         <router-link to="/" class="nav-logo">Dein Bangla Shop</router-link>
+
+        <!-- Kategorien: Direkt rechts neben dem Logo -->
         <div class="nav-links">
-          <router-link to="/" class="nav-item">Home</router-link>
           <router-link to="/damen" class="nav-item">Damen</router-link>
           <router-link to="/herren" class="nav-item">Herren</router-link>
           <router-link to="/about" class="nav-item">Accessoires</router-link>
         </div>
+
+        <!-- Icons: Ganz rechts -->
         <div class="nav-rechts">
           <router-link to="/likes" class="nav-item" style="position: relative;">
             <i class="bi bi-heart" style="font-size: 1.5rem; color: red;"></i>
             <span
               v-if="favoritesCount > 0"
-              style="position: absolute; top: -5px; right: -10px; background: red; color: white; font-size: 0.8rem; padding: 2px 5px; border-radius: 50%;"> {{ favoritesCount }}
+              style="position: absolute; top: -5px; right: -10px; background: red; color: white; font-size: 0.8rem; padding: 2px 5px; border-radius: 50%;">
+              {{ favoritesCount }}
             </span>
           </router-link>
-          <!-- Einkaufstaschen-Icon (Warenkorb) -->
+
           <router-link to="/warenkorb" class="nav-item" style="position: relative;">
             <i class="bi bi-bag" style="font-size: 1.5rem; color: black;"></i>
-            <!-- Warenkorb-Zähler -->
             <span
               v-if="cartCount > 0"
               style="position: absolute; top: -5px; right: -10px; background: red; color: white; font-size: 0.8rem; padding: 2px 5px; border-radius: 50%;">
@@ -47,55 +51,54 @@
               </ul>
             </div>
           </div>
-
         </div>
       </div>
     </nav>
 
     <main class="main-content">
-      <router-view/>
+      <router-view />
     </main>
 
     <footer class="footer">
-        <div class="footer-container">
-          <!-- Unser Unternehmen -->
-          <div class="footer-column">
-            <h5>Unser Unternehmen</h5>
-            <ul>
-              <li><a href="/kontakt">Über uns</a></li>
-              <li><a href="/nachhaltigkeit">Nachhaltigkeit</a></li>
-              <li><a href="/Lieferantenversprechen">Lieferantenversprechen</a></li>
-              <li><a href="/blog">Blog</a></li>
-            </ul>
-          </div>
-
-          <!-- Hilfe -->
-          <div class="footer-column">
-            <h5>Hilfe</h5>
-            <ul>
-              <li><a href="/kundenservice">Kundenservice & Support</a></li>
-              <li><a href="/versand">Versandinformationen</a></li>
-              <li><a href="/retouren">Retouren</a></li>
-              <li><a href="/kontakt">Kontakt</a></li>
-            </ul>
-          </div>
-
-          <!-- Rechtliches -->
-          <div class="footer-column">
-            <h5>Rechtliches</h5>
-            <ul>
-              <li><a href="/agb">AGB</a></li>
-              <li><a href="/datenschutz">Datenschutz</a></li>
-              <li><a href="/impressum">Impressum</a></li>
-            </ul>
-          </div>
+      <div class="footer-container">
+        <!-- Unser Unternehmen -->
+        <div class="footer-column">
+          <h5>Unser Unternehmen</h5>
+          <ul>
+            <li><a href="/kontakt">Über uns</a></li>
+            <li><a href="/nachhaltigkeit">Nachhaltigkeit</a></li>
+            <li><a href="/Lieferantenversprechen">Lieferantenversprechen</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
         </div>
 
-        <!-- Copyright -->
-        <div class="footer-bottom">
-          <p>&copy; 2024 Dein Bangla Shop. Alle Rechte vorbehalten.</p>
+        <!-- Hilfe -->
+        <div class="footer-column">
+          <h5>Hilfe</h5>
+          <ul>
+            <li><a href="/kundenservice">Kundenservice & Support</a></li>
+            <li><a href="/versand">Versandinformationen</a></li>
+            <li><a href="/retouren">Retouren</a></li>
+            <li><a href="/kontakt">Kontakt</a></li>
+          </ul>
         </div>
-      </footer>
+
+        <!-- Rechtliches -->
+        <div class="footer-column">
+          <h5>Rechtliches</h5>
+          <ul>
+            <li><a href="/agb">AGB</a></li>
+            <li><a href="/datenschutz">Datenschutz</a></li>
+            <li><a href="/impressum">Impressum</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 Dein Bangla Shop. Alle Rechte vorbehalten.</p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -142,18 +145,6 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-.offcanvas {
-  width: 250px; /* Breite des Offcanvas-Menüs */
-}
-
-.rotate {
-  transition: transform 0.3s ease;
-  transform: rotate(90deg);
-}
-
-.offcanvas {
-  width: 250px; /* Breite des Offcanvas-Menüs */
-}
 
 .rotate {
   transition: transform 0.3s ease;
@@ -174,16 +165,6 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Stellen Sie sicher, dass die App mindestens die Höhe des Viewports hat */
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.nav-rechts {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* Abstand zwischen den Icons */
 }
 
 .nav-item i {
@@ -234,10 +215,23 @@ html, body {
   margin-right: 20px; /* Abstand zwischen Logo und den Kategorien */
 }
 
+.nav-container-rechts {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px 5%;
+  max-width: 1200px;
+  margin: auto;
+  gap: 20px; /* Abstand zwischen den Icons */
+}
+
 .nav-links {
   display: flex;
+  align-item: center;
   gap: 20px; /* Abstand zwischen den Links */
-  margin-left: 0; /* Entferne Standardabstände */
+  /*
+  margin-left: 0; !* Entferne Standardabstände *!
+  */
 }
 
 .nav-item {
@@ -251,10 +245,20 @@ html, body {
   background-color: #f0f0f0;
 }
 
-/*.nav-item.router-link-exact-active {
+.icon {
+  font-size: 1.5rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.icon:hover {
+  color: #42b983;
+}
+
+.nav-item.router-link-exact-active {
   color: #ffffff;
-  background-color: #42b983; !* Hauptfarbe für aktiven Link *!
-}*/
+  background-color: #42b983; /* * Hauptfarbe für aktiven Link */
+}
 
 /* Hauptinhalt */
 .main-content {
@@ -328,6 +332,11 @@ html, body {
   }
 
   .nav-links {
+    margin-top:10px;
+    justify-content:flex-start;
+  }
+
+  .nav-rechts {
     margin-top:10px;
     justify-content:flex-start;
   }
