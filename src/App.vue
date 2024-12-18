@@ -201,7 +201,7 @@ html, body {
 
 .nav-container {
   display: flex;
-  justify-content: flex-start; /* Elemente nach links ausrichten */
+  justify-content: space-between; /* Elemente nach links ausrichten */
   align-items: center; /* Vertikal ausrichten */
   padding: 15px 5%;
   max-width: 1200px;
@@ -215,14 +215,11 @@ html, body {
   margin-right: 20px; /* Abstand zwischen Logo und den Kategorien */
 }
 
-.nav-container-rechts {
+.nav-rechts {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Icons nach rechts ausrichten */
   align-items: center;
-  padding: 15px 5%;
-  max-width: 1200px;
-  margin: auto;
-  gap: 20px; /* Abstand zwischen den Icons */
+  gap: 20px;
 }
 
 .nav-links {
@@ -327,7 +324,7 @@ html, body {
   .nav-container {
     flex-direction: column; /* Vertikale Anordnung auf kleinen Bildschirmen */
     padding:10px;
-    align-items:flex-start; /* Links ausrichten auf kleinen Bildschirmen */
+    align-items:space-between; /* Links ausrichten auf kleinen Bildschirmen */
     gap:10px; /* Abstand zwischen Logo und Links erhöhen */
   }
 
@@ -337,8 +334,10 @@ html, body {
   }
 
   .nav-rechts {
-    margin-top:10px;
-    justify-content:flex-start;
+    display: flex;
+    justify-content: flex-end; /* Icons nach rechts ausrichten */
+    align-items: center;
+    gap: 20px;
   }
 
   .main-content {
