@@ -3,7 +3,7 @@
     <nav class="modern-nav">
       <div class="nav-container">
         <!-- Logo -->
-        <router-link to="/" class="nav-logo">Dein Bangla Shop</router-link>
+        <router-link to="/" class="nav-logo">Bangla Shop</router-link>
 
         <!-- Kategorien: Direkt rechts neben dem Logo -->
         <div class="nav-links">
@@ -193,7 +193,7 @@ html, body {
   font-weight: bold;
 }
 
-/* Navigation */
+/* Navigationsbar */
 .modern-nav {
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -202,6 +202,7 @@ html, body {
   top: 0;
   left: 0;
   z-index: 1000;
+  height: 80px;
 }
 
 .nav-container {
@@ -265,7 +266,7 @@ html, body {
 /* Hauptinhalt */
 .main-content {
   padding-top: calc(80px + env(safe-area-inset-top)); /* Berücksichtigen Sie die Höhe der Navigation und mögliche Safe-Areas auf Mobilgeräten */
-  flex-grow:1; /* Ermöglicht dem Hauptinhalt, den verfügbaren Platz einzunehmen */
+  //flex-grow:1; /* Ermöglicht dem Hauptinhalt, den verfügbaren Platz einzunehmen */
 }
 
 /* Footer */
@@ -324,8 +325,32 @@ html, body {
   color: #6c757d;
 }
 
+.login-container {
+  margin: auto;
+  padding: 20px; /* Innenabstand */
+  max-width: 400px; /* Maximale Breite */
+}
+
+.login-container h1 {
+  font-size: 1.5rem; /* Überschrift skalieren */
+  text-align: center; /* Zentrierte Ausrichtung */
+}
+
+html {
+  font-size: 16px; /* Standard für größere Bildschirme */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+
+  html {
+      font-size: 14px; /* Kleinere Schriftgröße für mobile Geräte */
+  }
+
+  .modern-nav {
+    height: 100px; /* Navigation höher auf mobilen Geräten */
+  }
+
   .nav-container {
     flex-direction: column; /* Vertikale Anordnung auf kleinen Bildschirmen */
     padding:10px;
@@ -350,5 +375,14 @@ html, body {
   .main-content {
     padding-top: calc(120px + env(safe-area-inset-top)); /* Anpassen des oberen Abstands auf kleinen Bildschirmen */
   }
+
+  .login-container {
+    padding: 10px; /* Weniger Abstand bei kleineren Bildschirmen */
+  }
+
+  .login-container h1 {
+    font-size: 1.2rem; /* Kleinere Schriftgröße für Überschriften */
+  }
+
 }
 </style>
