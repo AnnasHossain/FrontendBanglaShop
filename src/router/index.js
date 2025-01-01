@@ -4,6 +4,7 @@ import DamenView from '../views/DamenView.vue'
 import HerrenView from '../views/HerrenView.vue'
 import LikeView from '@/views/LikeView.vue'
 import WarenkorbView from '@/views/WarenkorbView.vue'
+import LoginView from '../views/LoginView.vue'
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     path: '/warenkorb',
     name: 'warenkorb',
     component: WarenkorbView
+  },
+  { // vielleicht hier login-component weil div klassenbezeichnung
+    path: '/login',
+    name: 'login',
+    component: LoginView
   }
 ]
 

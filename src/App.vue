@@ -9,7 +9,7 @@
         <div class="nav-links">
           <router-link to="/damen" class="nav-item">Damen</router-link>
           <router-link to="/herren" class="nav-item">Herren</router-link>
-          <router-link to="/about" class="nav-item">Accessoires</router-link>
+          <router-link to="/kontakt" class="nav-item">Accessoires</router-link>
         </div>
 
         <!-- Icons: Ganz rechts -->
@@ -32,6 +32,11 @@
             </span>
           </router-link>
 
+          <!-- Login-Button -->
+          <router-link to="/login" class="btn btn-outline-primary nav-item">
+            Login
+          </router-link>
+
           <!-- Menü Button mit Icon -->
           <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" @click="toggleMenu">
             <i :class="['fas', isMenuOpen ? 'fa-times' : 'fa-bars', { rotate: isMenuOpen }]"></i>
@@ -47,7 +52,7 @@
               <ul>
                 <li><router-link to="/damen" @click="closeMenu">Damenmode</router-link></li>
                 <li><router-link to="/herren" @click="closeMenu">Herrenmode</router-link></li>
-                <li><router-link to="/about" @click="closeMenu">Accessoires (About)</router-link></li>
+                <li><router-link to="/kontakt" @click="closeMenu">Accessoires (About)</router-link></li>
               </ul>
             </div>
           </div>
@@ -324,8 +329,10 @@ html, body {
   .nav-container {
     flex-direction: column; /* Vertikale Anordnung auf kleinen Bildschirmen */
     padding:10px;
-    align-items:space-between; /* Links ausrichten auf kleinen Bildschirmen */
+    justify-content: space-between;
+    align-items:center; /* Links ausrichten auf kleinen Bildschirmen */
     gap:10px; /* Abstand zwischen Logo und Links erhöhen */
+    max-width: 100%;
   }
 
   .nav-links {
