@@ -150,11 +150,13 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-
+/*
 .rotate {
   transition: transform 0.3s ease;
   transform: rotate(90deg);
 }
+
+ */
 
 .offcanvas {
   width: 250px; /* Breite des Offcanvas-Menüs */
@@ -182,7 +184,7 @@ html, body {
 }
 
 .nav-item span {
-  position: absolute;
+  position: relative;
   top: -5px;
   right: -10px;
   background: red;
@@ -197,7 +199,7 @@ html, body {
 .modern-nav {
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0;
   left: 0;
@@ -230,7 +232,7 @@ html, body {
 
 .nav-links {
   display: flex;
-  align-item: center;
+  align-items: center;
   gap: 20px; /* Abstand zwischen den Links */
   /*
   margin-left: 0; !* Entferne Standardabstände *!
@@ -247,7 +249,7 @@ html, body {
 .nav-item:hover {
   background-color: #f0f0f0;
 }
-
+/*
 .icon {
   font-size: 1.5rem;
   color: #333;
@@ -258,9 +260,11 @@ html, body {
   color: #42b983;
 }
 
+ */
+
 .nav-item.router-link-exact-active {
   color: #ffffff;
-  background-color: #42b983; /* * Hauptfarbe für aktiven Link */
+  background-color: #6f8dd7; /* * Hauptfarbe für aktiven Link */
 }
 
 /* Hauptinhalt */
