@@ -249,7 +249,7 @@ html, body {
 .nav-item:hover {
   background-color: #f0f0f0;
 }
-/*
+
 .icon {
   font-size: 1.5rem;
   color: #333;
@@ -259,8 +259,6 @@ html, body {
 .icon:hover {
   color: #42b983;
 }
-
- */
 
 .nav-item.router-link-exact-active {
   color: #ffffff;
