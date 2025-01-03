@@ -352,6 +352,7 @@ html {
   }
 
   .modern-nav {
+    position: relative;
     height: 100px; /* Navigation höher auf mobilen Geräten */
   }
 

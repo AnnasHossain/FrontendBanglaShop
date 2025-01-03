@@ -24,9 +24,15 @@ npm run test:unit
 ```
 npm run lint
 ```
+
 ### fixes peer-deps issues
 ```
 npm install --legacy-peer-deps
+```
+
+### fixing if webpack-merge problems arrives
+```
+npm install webpack-merge --save-dev
 ```
 
 
