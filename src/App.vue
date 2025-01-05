@@ -106,7 +106,7 @@
           <ul>
             <li><a href="/agb">AGB</a></li>
             <li><a href="/datenschutz">Datenschutz</a></li>
-            <li><a href="/impressum">Impressum</a></li>
+            <li><a href="/about">Impressum</a></li>
           </ul>
         </div>
       </div>

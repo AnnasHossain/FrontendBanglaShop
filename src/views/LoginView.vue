@@ -26,55 +26,34 @@
       <div class="offcanvas-body">
         <form class="text-start needs-validation" id="create-foodspot" novalidate>
           <div class="mb-3">
-            <label for="name" class="form-label"> Vorname </label>
-            <input type="text" class="form-control" id="name" v-model="name" required>
-            <div class="invalid feedback">
-            </div>
+            <label for="surname" class="form-label"> Vorname </label>
+            <input type="text" class="form-control" id="surname" v-model="surname" required>
           </div>
           <div class="mb-3">
               <label for="name" class="form-label"> Nachname </label>
               <input type="text" class="form-control" id="name" v-model="name" required>
-              <div class="invalid feedback">
-                Please provide the name of the restaurant.
-              </div>
           </div>
           <div class="mb-3">
-            <label for="category" class="form-label">Kategorie</label>
-            <select id="category" class="form-select" v-model="category" required>
-              <option value="" selected disabled>Choose...</option>
-              <option value="fast food">fast food</option>
-              <option value="asiatische Küche">asiatische Küche</option>
-              <option value="französische Küche">französische Küche</option>
-              <option value="japanische Küche">japanische Küche</option>
-              <option value="orientalische Küche">orientalische Küche</option>
-            </select>
+            <label for="addresse" class="form-label">Addresse</label>
+            <input type="text" class="form-control" id="addresse" v-model="addresse" required>
             <div class="invalid-feedback">
-              Please select a valid category.
+              Please provide the address
             </div>
           </div>
           <div class="mb-3">
-            <label for="address" class="form-label">Adresse</label>
-            <input type="text" class="form-control" id="address" v-model="address" required>
-            <div class="invalid-feedback">
-              Please provide the address.
-            </div>
+            <label for="geburtsdatum" class="form-label">Geburtsdatum</label>
+            <input type="text" class="form-control" id="geburtsdatum" v-model="geburtsdatum" required>
           </div>
           <div class="mb-3">
-            <label for="website" class="form-label">Webseite</label>
-            <input type="text" class="form-control" id="website" v-model="website" required>
-            <div class="invalid-feedback">
-              Please provide the hyperlink of the website.
-            </div>
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" v-model="email" required>
           </div>
           <div class="mb-3">
-            <label for="rating" class="form-label">Bewertung</label>
-            <input type="text" class="form-control" id="rating" v-model="rating" required>
-            <div class="invalid-feedback">
-              Please provide the rating.
-            </div>
+            <label for="password" class="form-label">Passwort</label>
+            <input type="text" class="form-control" id="password" v-model="password" required>
           </div>
           <div class="mt-5">
-            <button type="submit" class="btn btn-primary" @click.prevent="createFoodSpot"> Create</button>
+            <button type="submit" class="btn btn-primary" @click.prevent="createNutzer"> Registrieren </button>
             <button type="reset" class="btn btn-danger" >Reset</button>
           </div>
         </form>
