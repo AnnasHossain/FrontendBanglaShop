@@ -1,7 +1,7 @@
 <template>
   <div class="damen">
     <img alt="Vue logo" src="../assets/logo.png">
-    <FrauenKatalog msg="Willkommen auf der Frauen Seite des Shops"/>
+    <FrauenKatalog msg="Willkommen auf der Frauen Seite des Shops chuewiobvnireluövbgvire"/>
   </div>
 </template>
 
