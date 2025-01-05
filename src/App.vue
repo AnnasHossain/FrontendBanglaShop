@@ -24,7 +24,7 @@
           </router-link>
 
           <router-link to="/warenkorb" class="nav-item" style="position: relative;">
-            <i class="bi bi-bag" style="font-size: 1.5rem; color: black;"></i>
+            <i class="bi bi-bag" style="font-size: 1.5rem; color: var(--text-color);"></i>
             <span
               v-if="cartCount > 0"
               style="position: absolute; top: -5px; right: -10px; background: red; color: white; font-size: 0.8rem; padding: 2px 5px; border-radius: 50%;">
@@ -32,8 +32,12 @@
             </span>
           </router-link>
 
+          <button class="btn theme-toggle" @click="toggleDarkMode">
+            <i :class="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+          </button>
+
           <!-- Login-Button -->
-          <router-link to="/login" class="btn btn-outline-primary nav-item">
+          <router-link to="/login" class="btn btn-primary nav-item">
             Login
           </router-link>
 
@@ -62,6 +66,14 @@
 
     <main class="main-content">
       <router-view />
+      <section class="newsletter">
+        <h2>Newsletter abonnieren</h2>
+        <p>Erhalten Sie die neuesten Angebote und Trends direkt in Ihren Posteingang</p>
+        <form @submit.prevent="subscribeNewsletter">
+          <input type="email" v-model="email" placeholder="Ihre E-Mail-Adresse" required>
+          <button type="submit">Abonnieren</button>
+        </form>
+      </section>
     </main>
 
     <footer class="footer">
@@ -111,6 +123,25 @@
 // eslint-disable-next-line no-unused-vars
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
+const isDarkMode = ref(false)
+
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value
+  document.documentElement.setAttribute(
+    'data-theme',
+    isDarkMode.value ? 'dark' : 'light'
+  )
+  localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light')
+}
+
+const email = ref('')
+
+const subscribeNewsletter = () => {
+  // Hier würde die Logik für das Newsletter-Abonnement implementiert werden
+  console.log('Newsletter abonniert mit:', email.value)
+  email.value = ''
+}
+
 const isMenuOpen = ref(false)
 
 const favoritesCount = ref(3) // Bsp.anzahl gesetzt
@@ -150,16 +181,33 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-/*
+
 .rotate {
   transition: transform 0.3s ease;
   transform: rotate(90deg);
 }
 
- */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover .fas.fa-moon {
+  background: none; /* Mond bleibt ungefüllt beim Hover */
+  color: var(--link-hover-color); /* Mondfarbe wechselt beim Hover */
+}
+.theme-toggle:hover .fas.fa-sun {
+  background: none; /* Mond bleibt ungefüllt beim Hover */
+  color: var(--link-hover-color); /* Mondfarbe wechselt beim Hover */
+}
 
 .offcanvas {
-  width: 250px; /* Breite des Offcanvas-Menüs */
+  background-color: var(--nav-bg-color); /* Hintergrundfarbe passend zum Darkmode */
+  color: var(--text-color); /* Textfarbe */
 }
 
 /* Allgemeine Schriftarten und Farben */
@@ -172,6 +220,45 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Stellen Sie sicher, dass die App mindestens die Höhe des Viewports hat */
+}
+
+/* Standard-Button-Stile */
+.btn-primary {
+  background-color: transparent; /* Grüner Hintergrund */
+  color: #42b983; /* Weißer Text */
+  border: none;
+  border-radius: 0; /* Abgerundete Ecken */
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover-Effekt */
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--bg-color); /* Text wird grün */
+}
+
+/* Standardfarbe des Menü-Icons */
+.btn-primary i {
+  color: var(--text-color); /* Textfarbe des Icons */
+  font-size: 1.5rem; /* Größe des Icons */
+  transition: color 0.3s ease; /* Sanfter Übergang beim Hover */
+}
+
+/* Hover-Effekt für das Menü-Icon */
+.btn-primary:hover i {
+  color: var(--link-hover-color); /* Farbe beim Hover (grün im Darkmode) */
+}
+
+/* farbige Reaktion beim Rübergehen mit der Maus, funktioniert aber nicht */
+.nav-item:hover .bi-heart {
+  color: red;
+}
+
+/* farbige Reaktion beim Rübergehen mit der Maus, funktioniert aber nicht */
+.nav-item:hover .bi-bag{
+  color: var(--text-color);
 }
 
 .nav-item i {
@@ -197,7 +284,7 @@ html, body {
 
 /* Navigationsbar */
 .modern-nav {
-  background-color: #ffffff;
+  background-color: var(--nav-bg-color);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: relative;
   width: 100%;
@@ -205,6 +292,7 @@ html, body {
   left: 0;
   z-index: 1000;
   height: 80px;
+  transition: background-color 0.3s ease;
 }
 
 .nav-container {
@@ -219,7 +307,7 @@ html, body {
 .nav-logo {
   font-size: 1.8rem; /* Größere Schrift für das Logo */
   font-weight: bold;
-  color: #137703; /* Hauptfarbe des Logos */
+  color: var(--text-color); /* Hauptfarbe des Logos */
   margin-right: 20px; /* Abstand zwischen Logo und den Kategorien */
 }
 
@@ -239,15 +327,21 @@ html, body {
   */
 }
 
+.nav-item.router-link-exact-active {
+  color: var(--link-hover-color);
+}
+
 .nav-item {
-  color: #333;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: bold;
   padding: 10px;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .nav-item:hover {
-  background-color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--link-hover-color);
 }
 
 .icon {
@@ -260,23 +354,58 @@ html, body {
   color: #42b983;
 }
 
-.nav-item.router-link-exact-active {
-  color: #ffffff;
-  background-color: #6f8dd7; /* * Hauptfarbe für aktiven Link */
-}
-
 /* Hauptinhalt */
 .main-content {
   padding-top: calc(80px + env(safe-area-inset-top)); /* Berücksichtigen Sie die Höhe der Navigation und mögliche Safe-Areas auf Mobilgeräten */
   //flex-grow:1; /* Ermöglicht dem Hauptinhalt, den verfügbaren Platz einzunehmen */
 }
 
+.newsletter {
+  background-color: var(--footer-bg-color);
+  padding: 40px;
+  text-align: center;
+  color: var(--text-color); /* Textfarbe anpassen */
+}
+
+.newsletter form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.newsletter input[type="email"] {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid var(--text-color);
+  background-color: var(--bg-color); /* Hintergrund passend zum Design */
+  color: var(--text-color); /* Textfarbe anpassen */
+  border-radius: 5px; /* Abgerundete Ecken */
+}
+
+.newsletter input[type="email"]::placeholder {
+  color: var(--text-color); /* Platzhalter-Farbe für Darkmode */
+}
+
+.newsletter button {
+  padding: 10px 20px;
+  background-color: var(--link-hover-color);
+  color: var(--bg-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Abgerundete Ecken */
+}
+
+ .newsletter button:hover {
+  background-color: #2f986e; /* Hover-Farbe */
+  color: var(--bg-color);  /* Textfarbe beim Hover */
+ }
+
 /* Footer */
 .footer {
-  background-color: #f8f9fa; /* Heller Hintergrund */
-  color: #212529; /* Dunkle Schriftfarbe */
+  background-color: var(--footer-bg-color); /* Heller Hintergrund */
+  color: var(--link-hover-color); /* Dunkle Schriftfarbe */
   padding: 40px 20px; /* Innenabstand */
-  border-top: 1px solid #dee2e6; /* Dezente Trennlinie */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Dezente Trennlinie */
 }
 
 .footer-container {
@@ -296,7 +425,7 @@ html, body {
 .footer-column h5 {
   font-size: 1.2rem;
   margin-bottom: 15px;
-  color: #333;
+  color: var(--text-color);
   font-weight: bold;
 }
 
@@ -311,26 +440,20 @@ html, body {
 }
 
 .footer-column ul li a {
-  color: #555;
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer-column ul li a:hover {
-  color: #42b983; /* Hauptfarbe beim Hover */
+  color: var(--link-hover-color); /* Hauptfarbe beim Hover */
 }
 
 .footer-bottom {
   text-align: center;
   margin-top: 20px;
   font-size: 0.9rem;
-  color: #6c757d;
-}
-
-.login-container {
-  margin: auto;
-  padding: 20px; /* Innenabstand */
-  max-width: 400px; /* Maximale Breite */
+  color: var(--text-color);
 }
 
 .login-container h1 {

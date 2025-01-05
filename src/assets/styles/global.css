@@ -1,0 +1,51 @@
+:root {
+    --bg-color: #ffffff;       /* Hintergrundfarbe Light Mode */
+    --text-color: #000000;     /* Textfarbe Light Mode */
+    --nav-bg-color: #f8f9fa;  /* Navigationshintergrund Light Mode */
+    --footer-bg-color: #f1f1f1; /* Footer-Hintergrund Light Mode */
+    --link-hover-color: #42b983; /* Link-Hover-Farbe Light Mode */
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;       /* Hintergrundfarbe Dark Mode */
+    --text-color: #e0e0e0;     /* Textfarbe Dark Mode */
+    --nav-bg-color: #1f1f1f;  /* Navigationshintergrund Dark Mode */
+    --footer-bg-color: #1e1e1e; /* Footer-Hintergrund Dark Mode */
+    --link-hover-color: #42b983; /* Link-Hover-Farbe Dark Mode */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    scrollbar-color: var(--text-color) var(--bg-color); /* Farbe: Griff und Hintergrund */
+}
+
+
+/* Scrollbar für Webkit-basierte Browser (Chrome, Edge, Safari) */
+body::-webkit-scrollbar {
+    width: 8px; /* Breite der Scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--text-color); /* Griff-Farbe */
+    border-radius: 4px; /* Runde Ecken */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--link-hover-color); /* Hover-Farbe für Griff */
+}
+
+body::-webkit-scrollbar-track {
+    background-color: var(--bg-color); /* Hintergrund der Scrollbar */
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}

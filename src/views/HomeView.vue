@@ -28,15 +28,6 @@
           </div>
         </div>
       </section>
-
-      <section class="newsletter">
-        <h2>Newsletter abonnieren</h2>
-        <p>Erhalten Sie die neuesten Angebote und Trends direkt in Ihren Posteingang</p>
-        <form @submit.prevent="subscribeNewsletter">
-          <input type="email" v-model="email" placeholder="Ihre E-Mail-Adresse" required>
-          <button type="submit">Abonnieren</button>
-        </form>
-      </section>
     </main>
   </div>
 </template>
@@ -57,13 +48,6 @@ const categories = ref([
   { id: 3, name: 'Accessoires', image: 'https://via.placeholder.com/300x200?text=Accessoires' }
 ])
 
-const email = ref('')
-
-const subscribeNewsletter = () => {
-  // Hier würde die Logik für das Newsletter-Abonnement implementiert werden
-  console.log('Newsletter abonniert mit:', email.value)
-  email.value = ''
-}
 </script>
 
 <style>
@@ -134,32 +118,6 @@ body {
 
 .add-to-cart:hover {
   background-color: #3aa876;
-}
-
-.newsletter {
-  background-color: #f8f8f8;
-  padding: 40px;
-  text-align: center;
-}
-
-.newsletter form {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.newsletter input[type="email"] {
-  padding: 10px;
-  width: 300px;
-  border: 1px solid #ddd;
-}
-
-.newsletter button {
-  padding: 10px 20px;
-  background-color: #42b983;
-  color: white;
-  border: none;
-  cursor: pointer;
 }
 
 @media (max-width: 768px) {
