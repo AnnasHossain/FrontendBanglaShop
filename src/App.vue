@@ -258,7 +258,7 @@ html, body {
 
 /* farbige Reaktion beim Rübergehen mit der Maus, funktioniert aber nicht */
 .nav-item:hover .bi-bag{
-  color: var(--text-color);
+  color: var(--text-color)
 }
 
 .nav-item i {
